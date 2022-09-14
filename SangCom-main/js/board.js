@@ -1,3 +1,6 @@
+var check = true;
+
+
 let time = new Date();
 let month = time.getMonth()+1;
 let day = time.getDate();
@@ -15,27 +18,27 @@ let vr = '1';
 //   +(today.getMonth()+1)+"월 " ;
 
 
-comment_favor_Data[0].onclick = function() {
-    {
-      var favor = comment_favor.innerHTML;
-      console.log("1");
-        favor*=1;
-        favor+=1;
-        comment_favor.innerHTML=favor;
-    }
-  }
+// comment_favor_Data[0].onclick = function() {
+//     {
+//       var favor = comment_favor.innerHTML;
+//       console.log("1");
+//         favor*=1;
+//         favor+=1;
+//         comment_favor.innerHTML=favor;
+//     }
+//   }
 
-comment_add_Data[0].onclick = function(){
-  comment_temp = comment.innerHTML;
-  comment.innerHTML+='<input type="text" placeholder="답글을 입력해주세요." class="comment_input btn_basic"> <input type="submit" class="btnsmall_blue btn_basic" value="입력">';
+// comment_add_Data[0].onclick = function(){
+//   comment_temp = comment.innerHTML;
+//   comment.innerHTML+='<input type="text" placeholder="답글을 입력해주세요." class="comment_input btn_basic"> <input type="submit" class="btnsmall_blue btn_basic" value="입력">';
 
-  if(vr==='2')
-  {
-    comment.innerHTML='no';
+//   if(vr==='2')
+//   {
+//     comment.innerHTML='no';
 
-  }
-  vr = '2';
-}
+//   }
+//   vr = '2';
+// }  //이거 잠시 주석처리함 혹시 오류나면 다시 해주셈 js오류나서 
 function makecomment(input_text){
   var com ='<p class="commentList"> <span class="material-icons">cloud</span><b>익명/2022-'+month+'-'+day+'</b><br>'+input_text+'</p> <div id="comment_btn" class="justify-content-end d-flex">     <input type="button" class="material-icons commentBtn commentAdd" value="mode_comment">     <input type="button" class="material-icons commentBtn commentFavorite " value="favorite"      <span id="comment_favorite_value">1</span> </div>';
   return com;
@@ -89,28 +92,18 @@ function removeContent() {
   }
 }
 
-// function test() {
-//   $('button[name="thumb_up"]').css("font-variation-settings","'FILL' 1, 'wght' 100, 'GRAD' 200, 'opsz' 48");
-// }
+$(function(){
+  $('.bottom_icon').click(function(){
+    $(this).css("font-variation-settings","'FILL' 1, 'wght' 100, 'GRAD' 200, 'opsz' 48");
+  });
+});  //개별 색변경  추후에 하얀색으로 바꾸기할예정 하얀색은 fill을 0으로 바꾸면끝.
 
-$('button[name="thumb_up"]').click(function() {
-  $('button[name="thumb_up"]').css("font-variation-settings","'FILL' 1, 'wght' 100, 'GRAD' 200, 'opsz' 48");
-});
+$(function(){
+  $('.sur_comment_count').click(function(){
+    $('#added_comment').attr('class','commentInput');
+    check=false;
+  });
+});  //숨겨진 대댓글창 나타내기
 
-// $(function(){
-//   $('button[name="thumb_up"]').click(function(){
-//     $(this).css("font-variation-settings","'FILL' 1, 'wght' 100, 'GRAD' 200, 'opsz' 48");
-//   });
-// });
 
-// $(function(){
-//   $('.thumb').click(function(){
-//     $(this).css('background-color','blue');
-//   });
-// });
 
-// $(function(){
-//   $('.view').click(function(){
-//     $(this).css('background-color','blue');
-//   });
-// });
